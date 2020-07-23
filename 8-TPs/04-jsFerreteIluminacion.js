@@ -5,10 +5,75 @@ B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuent
 C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
 E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de ingresos brutos en informar del impuesto con el siguiente mensaje:
- ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
+ ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó
 
  */
 function CalcularPrecio () 
 {
- 	
+   let cantidad;
+   let marca;
+   let precioConDesuento;
+   let descuento;
+   let iibb;
+   let importeFinal;
+   const PRECIO = 35;
+   
+   cantidad = parseInt(document.getElementById("txtIdCantidad").value);
+   marca = document.getElementById("Marca").value;
+
+   switch(cantidad){
+      case 1:
+      case 2:
+       descuento = 0;
+       break;
+      
+      case 3:
+        if(marca == "ArgentinaLuz"){
+             descuento = 15;
+        }
+        else if(marca == "FelipeLamparas"){
+             descuento = 10;
+        }
+        else{
+             descuento = 5;
+        }
+        break;
+      
+      case 4:
+        if(marca == "ArgentinaLuz" || marca == "FelipeLamparas"){
+          descuento = 25;
+        }
+        else{
+          descuento = 20;
+        }
+        break;
+      
+      case 5:
+        if(marca == "ArgentinaLuz"){
+            descuento = 40;
+        }
+        else{
+           descuento = 30;
+        }
+        break;
+      
+      default :
+        descuento = 50;
+      
+            
+
+   }
+   //*************
+   precioConDesuento = PRECIO - PRECIO * descuento / 100;
+   
+   document.getElementById("txtIdprecioDescuento").value = precioConDesuento;
+
+   importeFinal = precioConDesuento * cantidad;
+
+   if(importeFinal > 120){
+     iibb = importeFinal * 10 / 100;
+     //importeFinal = importeFinal + iibb;
+     importeFinal += iibb;
+     alert("Importe a pagar: $" + importeFinal + " y pagó " + iibb + " de ingresos brutos");
+   }
 }
