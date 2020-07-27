@@ -1,6 +1,6 @@
 function mostrar()
 {
-	let estacionIngresada;
+	let estacion;
 	let destino;
 	let descuento;
 	let aumento;
@@ -8,10 +8,10 @@ function mostrar()
 	let precioConAumento;
 	const TARIFAS = 15000;
 
-	estacionIngresada = document.getElementById("txtIdEstacion").value;
+	estacion = document.getElementById("txtIdEstacion").value;
 	destino = document.getElementById("txtIdDestino").value;
 
-	switch(estacionIngresada){
+	switch(estacion){
 		case "Invierno" :
 			if(destino == "Bariloche"){
 				aumento = 20;
