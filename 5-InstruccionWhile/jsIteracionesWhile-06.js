@@ -1,13 +1,37 @@
 function mostrar()
 {
-	var contador;
-	var acumulador;
-	var numeroIngresado;
+	
+	let numeroIngresado;
+  let suma;
+	let promedio;
+	let i;
+	
+   suma = 0;
+   i = 0;
 
-	contador=0;
-	acumulador=0;
+	while(i < 5){
+
+		numeroIngresado = parseInt(prompt("Ingrese un numero"));
+		suma = suma + numeroIngresado;
+
+		i++;
+	}
+
+
+	promedio = suma / 5;
+
+	document.getElementById("txtIdSuma" ).value=suma;
+	document.getElementById("txtIdPromedio").value=promedio;
+
+	
+
 	
 	
-	txtIdSuma.value=acumulador;
-	txtIdPromedio.value=acumulador/5;
+	
+	promedio = suma / 5;
+
+	document.getElementById("txtIdSuma" ).value=suma;
+	document.getElementById("txtIdPromedio").value=promedio;
+	
+	
 }//FIN DE LA FUNCIÓN
